@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <!-- Title -->
+  <text x="600" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Complete CNN Architecture</text>
+  <text x="600" y="55" font-size="14" text-anchor="middle" fill="#666">MNIST Digit Classification (28×28 → 10 classes)</text>
+  
+  <!-- Input Image -->
+  <g id="input-layer">
+    <rect x="20" y="150" width="80" height="280" fill="url(#grad1)" stroke="#666" stroke-width="2" rx="5"/>
+    <text x="60" y="110" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Input</text>
+    <text x="60" y="130" font-size="12" text-anchor="middle" fill="#666">28×28×1</text>
+    <text x="60" y="460" font-size="11" text-anchor="middle" fill="#888">Grayscale</text>
+    <text x="60" y="475" font-size="11" text-anchor="middle" fill="#888">Image</text>
+  </g>
+  
+  <!-- Conv1 + ReLU + Pool -->
+  <g id="conv1-block">
+    <path d="M 100 280 L 140 280" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <rect x="140" y="180" width="70" height="220" fill="url(#grad2)" stroke="#E74C3C" stroke-width="2" rx="5"/>
+    <text x="175" y="110" font-size="14" font-weight="bold" text-anchor="middle" fill="#E74C3C">Conv1</text>
+    <text x="175" y="130" font-size="11" text-anchor="middle" fill="#666">28×28×32</text>
+    <text x="175" y="145" font-size="10" text-anchor="middle" fill="#888">kernel 3×3</text>
+    <text x="175" y="160" font-size="10" text-anchor="middle" fill="#888">padding 1</text>
+    
+    <!-- ReLU indicator -->
+    <rect x="145" y="420" width="60" height="15" fill="#FF6B6B" stroke="none" rx="3"/>
+    <text x="175" y="431" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">ReLU</text>
+    
+    <!-- BatchNorm indicator -->
+    <rect x="145" y="440" width="60" height="15" fill="#4ECDC4" stroke="none" rx="3"/>
+    <text x="175" y="451" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">BatchNorm</text>
+    
+    <!-- Pool indicator -->
+    <rect x="145" y="460" width="60" height="15" fill="#95E1D3" stroke="none" rx="3"/>
+    <text x="175" y="471" font-size="9" text-anchor="middle" fill="#333" font-weight="bold">MaxPool 2×2</text>
+    
+    <path d="M 210 290 L 250 290" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="230" y="285" font-size="10" text-anchor="middle" fill="#888">14×14×32</text>
+  </g>
+  
+  <!-- Conv2 + ReLU + Pool + Dropout -->
+  <g id="conv2-block">
+    <rect x="250" y="200" width="65" height="200" fill="url(#grad3)" stroke="#E67E22" stroke-width="2" rx="5"/>
+    <text x="282" y="110" font-size="14" font-weight="bold" text-anchor="middle" fill="#E67E22">Conv2</text>
+    <text x="282" y="130" font-size="11" text-anchor="middle" fill="#666">14×14×64</text>
+    <text x="282" y="145" font-size="10" text-anchor="middle" fill="#888">kernel 3×3</text>
+    <text x="282" y="160" font-size="10" text-anchor="middle" fill="#888">padding 1</text>
+    
+    <rect x="255" y="420" width="55" height="12" fill="#FF6B6B" stroke="none" rx="3"/>
+    <text x="282" y="429" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">ReLU</text>
+    
+    <rect x="255" y="435" width="55" height="12" fill="#4ECDC4" stroke="none" rx="3"/>
+    <text x="282" y="444" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">BatchNorm</text>
+    
+    <rect x="255" y="450" width="55" height="12" fill="#95E1D3" stroke="none" rx="3"/>
+    <text x="282" y="459" font-size="8" text-anchor="middle" fill="#333" font-weight="bold">MaxPool</text>
+    
+    <rect x="255" y="465" width="55" height="12" fill="#F7DC6F" stroke="none" rx="3"/>
+    <text x="282" y="474" font-size="8" text-anchor="middle" fill="#333" font-weight="bold">Dropout 0.25</text>
+    
+    <path d="M 315 300 L 355 300" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="335" y="295" font-size="10" text-anchor="middle" fill="#888">7×7×64</text>
+  </g>
+  
+  <!-- Conv3 + ReLU + Pool -->
+  <g id="conv3-block">
+    <rect x="355" y="220" width="60" height="180" fill="url(#grad4)" stroke="#9B59B6" stroke-width="2" rx="5"/>
+    <text x="385" y="110" font-size="14" font-weight="bold" text-anchor="middle" fill="#9B59B6">Conv3</text>
+    <text x="385" y="130" font-size="11" text-anchor="middle" fill="#666">7×7×128</text>
+    <text x="385" y="145" font-size="10" text-anchor="middle" fill="#888">kernel 5×5</text>
+    <text x="385" y="160" font-size="10" text-anchor="middle" fill="#888">padding 2</text>
+    
+    <rect x="360" y="420" width="50" height="12" fill="#FF6B6B" stroke="none" rx="3"/>
+    <text x="385" y="429" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">ReLU</text>
+    
+    <rect x="360" y="435" width="50" height="12" fill="#4ECDC4" stroke="none" rx="3"/>
+    <text x="385" y="444" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">BatchNorm</text>
+    
+    <rect x="360" y="450" width="50" height="12" fill="#95E1D3" stroke="none" rx="3"/>
+    <text x="385" y="459" font-size="8" text-anchor="middle" fill="#333" font-weight="bold">MaxPool</text>
+    
+    <path d="M 415 310 L 455 310" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="435" y="305" font-size="10" text-anchor="middle" fill="#888">3×3×128</text>
+  </g>
+  
+  <!-- Flatten -->
+  <g id="flatten">
+    <rect x="455" y="250" width="50" height="120" fill="#ECF0F1" stroke="#34495E" stroke-width="2" rx="5"/>
+    <text x="480" y="110" font-size="14" font-weight="bold" text-anchor="middle" fill="#34495E">Flatten</text>
+    <text x="480" y="130" font-size="11" text-anchor="middle" fill="#666">1152</text>
+    <text x="480" y="145" font-size="9" text-anchor="middle" fill="#888">(3×3×128)</text>
+    
+    <path d="M 505 310 L 545 310" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- FC1 + ReLU + Dropout -->
+  <g id="fc1">
+    <rect x="545" y="240" width="80" height="140" fill="url(#grad5)" stroke="#3498DB" stroke-width="2" rx="5"/>
+    <text x="585" y="110" font-size="14" font-weight="bold" text-anchor="middle" fill="#3498DB">FC1</text>
+    <text x="585" y="130" font-size="12" text-anchor="middle" fill="#666">256 neurons</text>
+    
+    <rect x="555" y="400" width="60" height="14" fill="#FF6B6B" stroke="none" rx="3"/>
+    <text x="585" y="410" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">ReLU</text>
+    
+    <rect x="555" y="418" width="60" height="14" fill="#F7DC6F" stroke="none" rx="3"/>
+    <text x="585" y="428" font-size="9" text-anchor="middle" fill="#333" font-weight="bold">Dropout 0.5</text>
+    
+    <!-- Neuron circles -->
+    <circle cx="560" cy="270" r="4" fill="#fff" stroke="#3498DB" stroke-width="1"/>
+    <circle cx="560" cy="290" r="4" fill="#fff" stroke="#3498DB" stroke-width="1"/>
+    <circle cx="560" cy="310" r="4" fill="#fff" stroke="#3498DB" stroke-width="1"/>
+    <text x="585" cy="330" font-size="12" text-anchor="middle" fill="#999">...</text>
+    <circle cx="560" cy="350" r="4" fill="#fff" stroke="#3498DB" stroke-width="1"/>
+    <circle cx="560" cy="370" r="4" fill="#fff" stroke="#3498DB" stroke-width="1"/>
+    
+    <path d="M 625 310 L 665 310" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- FC2 + ReLU -->
+  <g id="fc2">
+    <rect x="665" y="260" width="75" height="100" fill="url(#grad6)" stroke="#1ABC9C" stroke-width="2" rx="5"/>
+    <text x="702" y="110" font-size="14" font-weight="bold" text-anchor="middle" fill="#1ABC9C">FC2</text>
+    <text x="702" y="130" font-size="12" text-anchor="middle" fill="#666">128 neurons</text>
+    
+    <rect x="675" y="380" width="55" height="14" fill="#FF6B6B" stroke="none" rx="3"/>
+    <text x="702" y="390" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">ReLU</text>
+    
+    <!-- Neuron circles -->
+    <circle cx="680" cy="280" r="4" fill="#fff" stroke="#1ABC9C" stroke-width="1"/>
+    <circle cx="680" cy="300" r="4" fill="#fff" stroke="#1ABC9C" stroke-width="1"/>
+    <text x="702" cy="325" font-size="12" text-anchor="middle" fill="#999">...</text>
+    <circle cx="680" cy="340" r="4" fill="#fff" stroke="#1ABC9C" stroke-width="1"/>
+    
+    <path d="M 740 310 L 780 310" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- FC3 (Output) -->
+  <g id="fc3">
+    <rect x="780" y="200" width="70" height="220" fill="url(#grad7)" stroke="#27AE60" stroke-width="2" rx="5"/>
+    <text x="815" y="110" font-size="14" font-weight="bold" text-anchor="middle" fill="#27AE60">Output</text>
+    <text x="815" y="130" font-size="12" text-anchor="middle" fill="#666">10 classes</text>
+    
+    <!-- Output neurons with labels -->
+    <circle cx="795" cy="220" r="5" fill="#fff" stroke="#27AE60" stroke-width="2"/>
+    <text x="860" y="225" font-size="10" fill="#555">0</text>
+    
+    <circle cx="795" cy="250" r="5" fill="#fff" stroke="#27AE60" stroke-width="2"/>
+    <text x="860" y="255" font-size="10" fill="#555">1</text>
+    
+    <circle cx="795" cy="280" r="5" fill="#fff" stroke="#27AE60" stroke-width="2"/>
+    <text x="860" y="285" font-size="10" fill="#555">2</text>
+    
+    <circle cx="795" cy="310" r="5" fill="#27AE60"/>
+    <text x="860" y="315" font-size="10" fill="#27AE60" font-weight="bold">3 ✓</text>
+    
+    <circle cx="795" cy="340" r="5" fill="#fff" stroke="#27AE60" stroke-width="2"/>
+    <text x="860" y="345" font-size="10" fill="#555">4</text>
+    
+    <circle cx="795" cy="370" r="5" fill="#fff" stroke="#27AE60" stroke-width="2"/>
+    <text x="860" y="375" font-size="10" fill="#555">5</text>
+    
+    <circle cx="795" cy="400" r="5" fill="#fff" stroke="#27AE60" stroke-width="2"/>
+    <text x="860" y="405" font-size="10" fill="#555">...</text>
+    
+    <path d="M 850 310 L 910 310" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Prediction -->
+  <g id="prediction">
+    <rect x="910" y="260" width="90" height="100" fill="#F8F9FA" stroke="#27AE60" stroke-width="3" rx="10"/>
+    <text x="955" y="290" font-size="36" font-weight="bold" text-anchor="middle" fill="#27AE60">3</text>
+    <text x="955" y="310" font-size="11" text-anchor="middle" fill="#666">Confidence:</text>
+    <text x="955" y="330" font-size="14" text-anchor="middle" fill="#27AE60" font-weight="bold">98.7%</text>
+    <text x="955" y="350" font-size="10" text-anchor="middle" fill="#888">Predicted</text>
+    <text x="955" y="365" font-size="10" text-anchor="middle" fill="#888">Digit</text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="50" y="520" width="900" height="70" fill="#F8F9FA" stroke="#ddd" stroke-width="1" rx="5"/>
+    
+    <text x="500" y="540" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Architecture Summary</text>
+    
+    <text x="70" y="560" font-size="11" fill="#555">• Total Parameters: ~300,000</text>
+    <text x="70" y="577" font-size="11" fill="#555">• Convolutional Layers: 3 (feature extraction)</text>
+    
+    <text x="400" y="560" font-size="11" fill="#555">• Pooling Layers: 3 (dimension reduction)</text>
+    <text x="400" y="577" font-size="11" fill="#555">• Fully Connected Layers: 3 (classification)</text>
+    
+    <text x="730" y="560" font-size="11" fill="#555">• Regularization: Dropout + BatchNorm</text>
+    <text x="730" y="577" font-size="11" fill="#555">• Activation: ReLU throughout</text>
+  </g>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#BDC3C7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#95A5A6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB6B9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E74C3C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAD7A0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E67E22;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#D7BDE2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9B59B6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad5" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#AED6F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3498DB;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad6" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A2DED0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1ABC9C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad7" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A9DFBF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#27AE60;stop-opacity:1" />
+    </linearGradient>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666" />
+    </marker>
+  </defs>
+</svg>
